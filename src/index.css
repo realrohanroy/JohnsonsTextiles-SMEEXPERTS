@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Chivo:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=Vesper+Libre:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* September — "restrained sacred": deep indigo ground, saffron + brass accents */
+        --background: 224 40% 9%;
+        --foreground: 40 33% 95%;
+
+        --card: 224 34% 13%;
+        --card-foreground: 40 33% 95%;
+
+        --popover: 224 36% 12%;
+        --popover-foreground: 40 33% 95%;
+
+        --primary: 28 92% 53%;             /* saffron */
+        --primary-foreground: 224 45% 9%;
+        --primary-glow: 30 88% 62%;
+
+        --secondary: 224 26% 17%;
+        --secondary-foreground: 40 30% 92%;
+
+        --muted: 224 24% 15%;
+        --muted-foreground: 40 12% 70%;
+
+        --accent: 42 62% 62%;              /* brass gold */
+        --accent-foreground: 224 45% 9%;
+
+        --brass: 42 58% 60%;
+
+        --destructive: 0 62% 46%;
+        --destructive-foreground: 40 33% 95%;
+
+        --success: 152 42% 42%;
+        --warning: 38 82% 55%;
+
+        /* data cadence */
+        --raised: 30 92% 58%;              /* live — saffron */
+        --raised-foreground: 224 45% 9%;
+        --utilized: 42 46% 72%;            /* periodic — brass, quieter */
+        --utilized-foreground: 224 45% 9%;
+
+        --border: 224 20% 22%;
+        --input: 224 20% 24%;
+        --ring: 28 92% 53%;
+
+        --chart-1: 28 92% 53%;
+        --chart-2: 42 58% 60%;
+        --chart-3: 200 30% 55%;
+        --chart-4: 12 62% 50%;
+        --chart-5: 45 40% 78%;
+
+        --radius: 0.25rem;
+    }
+
+    /* Ivory "document" scope — used by the transparency ledger so it reads like paper */
+    .paper {
+        --background: 40 32% 96%;
+        --foreground: 224 44% 12%;
+        --card: 40 34% 98%;
+        --card-foreground: 224 44% 12%;
+        --primary: 24 82% 42%;
+        --primary-foreground: 40 32% 97%;
+        --secondary: 40 22% 91%;
+        --secondary-foreground: 224 40% 16%;
+        --muted: 40 18% 90%;
+        --muted-foreground: 224 12% 40%;
+        --accent: 36 62% 42%;
+        --accent-foreground: 40 32% 97%;
+        --brass: 36 52% 46%;
+        --border: 224 14% 82%;
+        --raised: 24 80% 44%;
+        --utilized: 215 22% 36%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        scroll-behavior: smooth;
+    }
+    body {
+        @apply bg-background text-foreground;
+        margin: 0;
+        font-family: 'Inter', system-ui, sans-serif;
+    }
+    h1, h2, h3, h4, .font-serif {
+        font-family: 'Cormorant Garamond', Georgia, serif;
+        font-weight: 600;
+    }
+    ::selection {
+        background: hsl(var(--primary) / 0.28);
+        color: hsl(var(--foreground));
+    }
+    .tnum {
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: 'tnum';
+    }
+    /* Every figure on the site: technical grotesk, lining tabular numerals */
+    .numeral {
+        font-family: 'Chivo', 'Inter', system-ui, sans-serif;
+        font-variant-numeric: tabular-nums lining-nums;
+        font-feature-settings: 'tnum' 1, 'lnum' 1;
+        letter-spacing: -0.025em;
+    }
+    /* Technical metadata / label voice */
+    .meta {
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+        font-size: 0.6875rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+    }
+    /* Devanagari accents — seva names, shloka lines */
+    .devanagari {
+        font-family: 'Vesper Libre', 'Noto Serif Devanagari', serif;
+        font-weight: 400;
+        letter-spacing: 0.01em;
+    }
+}
+
+@layer components {
+    .section-x {
+        @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+    }
+    .eyebrow {
+        @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground;
+        font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    }
+    .hairline {
+        @apply border-t border-border;
+    }
+    .brass-rule {
+        height: 1px;
+        background: linear-gradient(90deg, hsl(var(--brass) / 0.55), hsl(var(--brass) / 0.05));
+    }
+    /* stepped plinth: a thin double rule, like a temple base moulding */
+    .plinth {
+        border-top: 1px solid hsl(var(--brass) / 0.35);
+        box-shadow: 0 3px 0 -2px hsl(var(--brass) / 0.22);
+    }
+    .grain {
+        position: relative;
+    }
+    .grain::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    /* jaali — pierced stone lattice, used only as a whisper behind content */
+    .jaali {
+        position: relative;
+    }
+    .jaali::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.055;
+        background-size: 68px 68px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='68' viewBox='0 0 68 68'%3E%3Cg fill='none' stroke='%23E9C979' stroke-width='1.1'%3E%3Cpath d='M34 1 L67 34 L34 67 L1 34 Z'/%3E%3Ccircle cx='34' cy='34' r='15'/%3E%3Cpath d='M0 0 L17 17 M68 0 L51 17 M0 68 L17 51 M68 68 L51 51'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .paper.jaali::before {
+        opacity: 0.085;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='68' viewBox='0 0 68 68'%3E%3Cg fill='none' stroke='%23A8792B' stroke-width='1.1'%3E%3Cpath d='M34 1 L67 34 L34 67 L1 34 Z'/%3E%3Ccircle cx='34' cy='34' r='15'/%3E%3Cpath d='M0 0 L17 17 M68 0 L51 17 M0 68 L17 51 M68 68 L51 51'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    /* cusped arch silhouette for image frames */
+    .arch {
+        clip-path: path('M0,100 L0,42 C0,18 22,0 50,0 C78,0 100,18 100,42 L100,100 Z');
+    }
+}
+
+@layer base {
+    [data-debug-wrapper='true'] {
+        display: contents !important;
+    }
+    [data-debug-wrapper='true'] > * {
+        margin-left: inherit;
+        margin-right: inherit;
+        margin-top: inherit;
+        margin-bottom: inherit;
+        column-gap: inherit;
+        row-gap: inherit;
+        gap: inherit;
+    }
+}
