@@ -67,19 +67,19 @@ export default function App() {
             
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center space-x-10">
-              <a href="#" className="text-[#d2ae6d] hover:text-white transition-colors font-medium text-sm tracking-wider border-b border-[#d2ae6d] pb-1">Home</a>
-              <a href="#" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">Men</a>
-              <a href="#" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">Women</a>
-              <a href="#" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">Kids</a>
-              <a href="#" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">About Us</a>
-              <a href="#" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">Contact</a>
+              <a href="#home" className="text-[#d2ae6d] hover:text-white transition-colors font-medium text-sm tracking-wider border-b border-[#d2ae6d] pb-1">Home</a>
+              <a href="#collections" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">Men</a>
+              <a href="#collections" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">Women</a>
+              <a href="#collections" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">Kids</a>
+              <a href="#our-story" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">Our Story</a>
+              <a href="#visit-us" className="text-gray-100 hover:text-white transition-colors font-medium text-sm tracking-wider">Visit Us</a>
             </div>
 
             {/* CTA Button */}
             <div className="hidden lg:flex items-center">
-              <button className="bg-[#d2ae6d] hover:bg-[#c19e60] text-black px-6 py-2.5 font-bold transition-colors text-sm rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(210,174,109,0.3)] tracking-wide">
+              <a href="#visit-us" className="bg-[#d2ae6d] hover:bg-[#c19e60] text-black px-6 py-2.5 font-bold transition-colors text-sm rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(210,174,109,0.3)] tracking-wide">
                 <MapPin size={16} /> Visit Our Store
-              </button>
+              </a>
             </div>
 
             {/* Mobile menu button */}
@@ -95,16 +95,16 @@ export default function App() {
         {isMobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-100 absolute w-full">
             <div className="px-4 pt-2 pb-6 space-y-1 shadow-lg">
-              <a href="#" className="block px-3 py-3 text-base font-medium text-gray-900 bg-gray-50">Home</a>
-              <a href="#" className="block px-3 py-3 text-base font-medium text-gray-600">Men</a>
-              <a href="#" className="block px-3 py-3 text-base font-medium text-gray-600">Women</a>
-              <a href="#" className="block px-3 py-3 text-base font-medium text-gray-600">Kids</a>
-              <a href="#" className="block px-3 py-3 text-base font-medium text-gray-600">Our Story</a>
-              <a href="#" className="block px-3 py-3 text-base font-medium text-gray-600">Visit Us</a>
+              <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-900 bg-gray-50">Home</a>
+              <a href="#collections" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-600">Men</a>
+              <a href="#collections" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-600">Women</a>
+              <a href="#collections" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-600">Kids</a>
+              <a href="#our-story" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-600">Our Story</a>
+              <a href="#visit-us" onClick={() => setIsMobileMenuOpen(false)} className="block px-3 py-3 text-base font-medium text-gray-600">Visit Us</a>
               <div className="pt-4 px-3">
-                <button className="w-full bg-[#d2ae6d] text-gray-900 px-6 py-3 font-medium flex items-center justify-center gap-2 rounded-sm">
+                <a href="#visit-us" onClick={() => setIsMobileMenuOpen(false)} className="w-full bg-[#d2ae6d] text-black px-6 py-4 font-bold tracking-wider flex items-center justify-center gap-2 rounded-full shadow-[0_0_15px_rgba(210,174,109,0.3)] text-sm">
                   Visit Store <ArrowRight size={16} />
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative min-h-[100vh] flex flex-col justify-end lg:justify-center bg-[#080808] overflow-hidden pt-20">
+      <section id="home" className="relative min-h-[100vh] flex flex-col justify-end lg:justify-center bg-[#080808] overflow-hidden pt-20">
         {/* Full bleed background image */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -171,12 +171,12 @@ export default function App() {
             
             {/* Buttons */}
             <div className="flex flex-row gap-4 w-full lg:max-w-xl">
-              <button className="flex-1 bg-[#d2ae6d] hover:bg-[#c19e60] text-black py-4 font-bold flex items-center justify-center gap-2 transition-colors rounded-full shadow-[0_0_20px_rgba(210,174,109,0.3)] text-[11px] sm:text-sm tracking-wider">
+              <a href="#collections" className="flex-1 bg-[#d2ae6d] hover:bg-[#c19e60] text-black py-4 font-bold flex items-center justify-center gap-2 transition-colors rounded-full shadow-[0_0_20px_rgba(210,174,109,0.3)] text-[11px] sm:text-sm tracking-wider">
                 EXPLORE OUR STORE <ArrowRight size={16} />
-              </button>
-              <button className="flex-1 border border-[#d2ae6d] hover:bg-[#d2ae6d]/10 text-[#d2ae6d] py-4 font-bold flex items-center justify-center gap-2 transition-colors rounded-full backdrop-blur-sm bg-black/60 text-[11px] sm:text-sm tracking-wider">
+              </a>
+              <a href="#visit-us" className="flex-1 border border-[#d2ae6d] hover:bg-[#d2ae6d]/10 text-[#d2ae6d] py-4 font-bold flex items-center justify-center gap-2 transition-colors rounded-full backdrop-blur-sm bg-black/60 text-[11px] sm:text-sm tracking-wider">
                 <MapPin size={16} /> VISIT US
-              </button>
+              </a>
             </div>
           </div>
 
@@ -215,7 +215,7 @@ export default function App() {
       </div>
 
       {/* Collections Section */}
-      <div className="bg-[#fcfbf9] py-24 border-b border-gray-200">
+      <div id="collections" className="bg-[#fcfbf9] py-24 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-[#d2ae6d] uppercase tracking-[0.2em] font-medium text-sm mb-4">Our Collections</p>
@@ -247,7 +247,7 @@ export default function App() {
                   </ul>
                 </div>
 
-                <button onClick={() => toggleCollection('men')} className="bg-[#d2ae6d] hover:bg-[#c19e60] text-gray-900 px-6 py-2.5 font-medium flex items-center justify-center gap-2 transition-colors rounded-sm text-sm w-4/5 shadow-lg opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 duration-300 relative z-10">
+                <button onClick={() => toggleCollection('men')} className="bg-[#d2ae6d] hover:bg-[#c19e60] text-black px-6 py-3 font-bold tracking-wider flex items-center justify-center gap-2 transition-all rounded-full text-xs sm:text-sm w-4/5 shadow-[0_0_15px_rgba(210,174,109,0.3)] opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 duration-300 relative z-10">
                   {expandedCollection === 'men' ? (
                     <>Close <ChevronUp size={16} /></>
                   ) : (
@@ -276,7 +276,7 @@ export default function App() {
                   </ul>
                 </div>
 
-                <button onClick={() => toggleCollection('women')} className="bg-[#d2ae6d] hover:bg-[#c19e60] text-gray-900 px-6 py-2.5 font-medium flex items-center justify-center gap-2 transition-colors rounded-sm text-sm w-4/5 shadow-lg opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 duration-300 relative z-10">
+                <button onClick={() => toggleCollection('women')} className="bg-[#d2ae6d] hover:bg-[#c19e60] text-black px-6 py-3 font-bold tracking-wider flex items-center justify-center gap-2 transition-all rounded-full text-xs sm:text-sm w-4/5 shadow-[0_0_15px_rgba(210,174,109,0.3)] opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 duration-300 relative z-10">
                   {expandedCollection === 'women' ? (
                     <>Close <ChevronUp size={16} /></>
                   ) : (
@@ -305,7 +305,7 @@ export default function App() {
                   </ul>
                 </div>
 
-                <button onClick={() => toggleCollection('kids')} className="bg-[#d2ae6d] hover:bg-[#c19e60] text-gray-900 px-6 py-2.5 font-medium flex items-center justify-center gap-2 transition-colors rounded-sm text-sm w-4/5 shadow-lg opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 duration-300 relative z-10">
+                <button onClick={() => toggleCollection('kids')} className="bg-[#d2ae6d] hover:bg-[#c19e60] text-black px-6 py-3 font-bold tracking-wider flex items-center justify-center gap-2 transition-all rounded-full text-xs sm:text-sm w-4/5 shadow-[0_0_15px_rgba(210,174,109,0.3)] opacity-90 group-hover:opacity-100 group-hover:-translate-y-1 duration-300 relative z-10">
                   {expandedCollection === 'kids' ? (
                     <>Close <ChevronUp size={16} /></>
                   ) : (
@@ -319,7 +319,7 @@ export default function App() {
       </div>
 
       {/* Our Journey Section */}
-      <div className="bg-[#121212] py-24 relative overflow-hidden">
+      <div id="our-story" className="bg-[#121212] py-24 relative overflow-hidden">
         {/* Subtle radial gradient background */}
         <div className="absolute top-0 right-0 w-full h-full opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#d2ae6d] via-black to-black"></div>
         
@@ -348,8 +348,8 @@ export default function App() {
               <p className="text-gray-400 text-lg mb-10 leading-relaxed font-light">
                 What began in 2015 as Johnsons Menswear, a small shop with a big dream, has grown into Johnsons Garments and Textiles — a family-run store serving men, women and kids with quality clothing and a commitment to our community.
               </p>
-              <button className="border border-[#d2ae6d] text-[#d2ae6d] hover:bg-[#d2ae6d] hover:text-black px-8 py-3.5 font-medium flex items-center gap-3 transition-all rounded-sm mb-16 inline-flex">
-                Our Story <ArrowRight size={16} />
+              <button className="border border-[#d2ae6d] text-[#d2ae6d] hover:bg-[#d2ae6d]/10 px-8 py-4 font-bold tracking-wider flex items-center gap-3 transition-colors rounded-full mb-16 inline-flex text-sm">
+                OUR STORY <ArrowRight size={16} />
               </button>
 
               <div className="space-y-10 relative before:absolute before:left-[5px] before:top-2 before:bottom-0 before:w-[2px] before:bg-gradient-to-b before:from-[#d2ae6d] before:to-transparent before:opacity-30">
@@ -428,7 +428,7 @@ export default function App() {
       </div>
 
       {/* Visit Our Store Section */}
-      <div className="bg-white py-24 border-t border-gray-100">
+      <div id="visit-us" className="bg-white py-24 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
@@ -440,8 +440,8 @@ export default function App() {
               <p className="text-gray-600 text-lg mb-10 leading-relaxed max-w-lg">
                 Come and explore a wide range of men's, women's and kids' wear at our store. Our friendly team is always ready to help you find the perfect outfit.
               </p>
-              <a href="https://maps.app.goo.gl/kfasLWS4K2877GH47" target="_blank" rel="noopener noreferrer" className="bg-[#d2ae6d] hover:bg-[#c19e60] text-gray-900 px-8 py-4 font-medium flex items-center justify-center gap-3 transition-colors rounded-sm mb-12 inline-flex">
-                <MapPin size={18} /> Get Directions <ArrowRight size={18} />
+              <a href="https://maps.app.goo.gl/kfasLWS4K2877GH47" target="_blank" rel="noopener noreferrer" className="bg-[#d2ae6d] hover:bg-[#c19e60] text-black px-8 py-4 font-bold tracking-wider flex items-center justify-center gap-3 transition-all rounded-full shadow-[0_0_15px_rgba(210,174,109,0.3)] mb-12 inline-flex text-sm">
+                <MapPin size={18} /> GET DIRECTIONS <ArrowRight size={18} />
               </a>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-8 border-t border-gray-100">
@@ -519,12 +519,12 @@ export default function App() {
             <div>
               <h4 className="text-white font-bold text-lg mb-6">Quick Links</h4>
               <ul className="space-y-4">
-                <li><a href="#" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Home</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Men's Wear</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Women's Wear</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Kids' Wear</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Our Story</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Visit Us</a></li>
+                <li><a href="#home" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Home</a></li>
+                <li><a href="#collections" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Men's Wear</a></li>
+                <li><a href="#collections" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Women's Wear</a></li>
+                <li><a href="#collections" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Kids' Wear</a></li>
+                <li><a href="#our-story" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Our Story</a></li>
+                <li><a href="#visit-us" className="text-gray-400 hover:text-[#d2ae6d] transition-colors flex items-center gap-2"><ChevronRight size={14}/> Visit Us</a></li>
               </ul>
             </div>
 
