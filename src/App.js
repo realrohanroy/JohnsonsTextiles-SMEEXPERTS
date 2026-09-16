@@ -14,6 +14,7 @@ import {
   MessageCircle,
   Facebook,
   Instagram,
+  Youtube,
   ChevronRight,
   ChevronDown,
   ChevronUp,
@@ -320,8 +321,14 @@ export default function App() {
 
       {/* Our Journey Section */}
       <div id="our-story" className="bg-[#121212] py-24 relative overflow-hidden">
+        {/* Passive background image */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <img src="/images/hero.png" alt="Store Background" className="w-full h-full object-cover opacity-25 grayscale mix-blend-luminosity" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-black/20 to-[#121212]"></div>
+        </div>
+        
         {/* Subtle radial gradient background */}
-        <div className="absolute top-0 right-0 w-full h-full opacity-10 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#d2ae6d] via-black to-black"></div>
+        <div className="absolute top-0 right-0 w-full h-full opacity-30 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#d2ae6d]/40 via-transparent to-transparent z-0"></div>
         
         {/* Decorative Concentric Rings - Top Left */}
         <div className="absolute -top-40 -left-40 w-[400px] h-[400px] rounded-full border border-[#d2ae6d]/20 pointer-events-none"></div>
@@ -455,7 +462,7 @@ export default function App() {
                     <p className="text-gray-600 text-sm leading-relaxed">
                       7/173, Aruna complex, Main road<br />
                       Kurumbur, Eral taluk, Alwarthirumagiri block<br />
-                      Thoothukudi district - 628 207
+                      Thoothukudi district, Tamilnadu - 628 207
                     </p>
                   </div>
                 </div>
@@ -500,20 +507,96 @@ export default function App() {
         </div>
       </div>
 
+      {/* Reviews Section */}
+      <div className="bg-[#0a0a0a] py-24 relative overflow-hidden border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
+          <p className="text-[#d2ae6d] uppercase tracking-[0.2em] font-medium text-sm mb-4">Customer Voices</p>
+          <h2 className="text-3xl md:text-5xl font-serif font-bold text-white">
+            Woven with Trust
+          </h2>
+        </div>
+        
+        {/* Infinite Marquee Container */}
+        <div className="relative w-full overflow-hidden flex whitespace-nowrap before:absolute before:left-0 before:top-0 before:w-32 before:h-full before:bg-gradient-to-r before:from-[#0a0a0a] before:to-transparent before:z-10 after:absolute after:right-0 after:top-0 after:w-32 after:h-full after:bg-gradient-to-l after:from-[#0a0a0a] after:to-transparent after:z-10">
+          <div className="animate-marquee flex gap-12 sm:gap-24 items-center">
+            {/* Set 1 */}
+            {[
+              { text: "The finest fabric quality in Thoothukudi. A true family legacy.", author: "Arun K." },
+              { text: "Beautiful collections and exceptional service. Highly recommended.", author: "Priya S." },
+              { text: "Found the perfect traditional wear for our entire family.", author: "Meena R." },
+              { text: "Unmatched attention to detail. The kids collection is fantastic.", author: "Karthik V." },
+              { text: "A premium shopping experience right here in Kurumbur.", author: "Suresh M." }
+            ].map((review, i) => (
+              <div key={i} className="flex flex-col items-center justify-center shrink-0 w-[80vw] sm:w-[500px]">
+                <div className="flex gap-1 text-[#d2ae6d] mb-6">
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                </div>
+                <p className="text-xl sm:text-3xl font-serif text-white whitespace-normal text-center leading-relaxed mb-6">
+                  "{review.text}"
+                </p>
+                <p className="text-[#d2ae6d] uppercase tracking-[0.2em] text-[10px] sm:text-xs font-medium">
+                  — {review.author}
+                </p>
+              </div>
+            ))}
+            
+            {/* Set 2 (Duplicate for infinite loop) */}
+            {[
+              { text: "The finest fabric quality in Thoothukudi. A true family legacy.", author: "Arun K." },
+              { text: "Beautiful collections and exceptional service. Highly recommended.", author: "Priya S." },
+              { text: "Found the perfect traditional wear for our entire family.", author: "Meena R." },
+              { text: "Unmatched attention to detail. The kids collection is fantastic.", author: "Karthik V." },
+              { text: "A premium shopping experience right here in Kurumbur.", author: "Suresh M." }
+            ].map((review, i) => (
+              <div key={`dup-${i}`} className="flex flex-col items-center justify-center shrink-0 w-[80vw] sm:w-[500px]">
+                <div className="flex gap-1 text-[#d2ae6d] mb-6">
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                  <Star size={16} fill="currentColor" />
+                </div>
+                <p className="text-xl sm:text-3xl font-serif text-white whitespace-normal text-center leading-relaxed mb-6">
+                  "{review.text}"
+                </p>
+                <p className="text-[#d2ae6d] uppercase tracking-[0.2em] text-[10px] sm:text-xs font-medium">
+                  — {review.author}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Footer */}
       <footer className="bg-[#0f0f0f] text-white pt-20 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             
-            <div className="pr-8">
-              <div className="flex flex-col mb-6">
+            <div className="pr-0 md:pr-8 flex flex-col items-center md:items-start text-center md:text-left lg:col-span-2">
+              <div className="flex flex-col items-center md:items-start mb-6">
                 <img src="/images/logodark.png" alt="Johnsons Logo" className="h-20 w-20 object-contain mb-3" />
                 <span className="text-3xl font-bold font-serif uppercase tracking-widest text-white">Johnsons</span>
                 <span className="text-[11px] text-gray-400 font-sans tracking-[0.2em] mt-1.5 font-medium">Garments & Textiles</span>
               </div>
-              <p className="text-gray-400 text-sm italic font-serif">
+              <p className="text-gray-400 text-sm italic font-serif mb-6">
                 Dressed for Today.<br/>Together for Tomorrow.
               </p>
+              <div className="flex gap-4">
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#d2ae6d] hover:text-black flex items-center justify-center transition-all text-white">
+                  <Facebook size={18} />
+                </a>
+                <a href="https://www.instagram.com/johnsonstextiles?igsi=MTU3bWQ3ZDZoOHoxZw==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#d2ae6d] hover:text-black flex items-center justify-center transition-all text-white">
+                  <Instagram size={18} />
+                </a>
+                <a href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#d2ae6d] hover:text-black flex items-center justify-center transition-all text-white">
+                  <Youtube size={18} />
+                </a>
+              </div>
             </div>
 
             <div>
@@ -549,24 +632,14 @@ export default function App() {
                     <p className="text-gray-300 leading-relaxed text-sm">
                       7/173, Aruna complex, Main road<br />
                       Kurumbur, Eral taluk<br />
-                      Thoothukudi district - 628 207
+                      Thoothukudi district, Tamilnadu - 628 207
                     </p>
                   </div>
                 </li>
               </ul>
             </div>
 
-            <div>
-              <h4 className="text-white font-bold text-lg mb-6">Follow Us</h4>
-              <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#d2ae6d] hover:text-black flex items-center justify-center transition-all text-white">
-                  <Facebook size={18} />
-                </a>
-                <a href="https://www.instagram.com/johnsonstextiles?igsi=MTU3bWQ3ZDZoOHoxZw==" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 hover:bg-[#d2ae6d] hover:text-black flex items-center justify-center transition-all text-white">
-                  <Instagram size={18} />
-                </a>
-              </div>
-            </div>
+            {/* Follow Us moved to the first column for mobile/desktop layout */}
             
           </div>
 

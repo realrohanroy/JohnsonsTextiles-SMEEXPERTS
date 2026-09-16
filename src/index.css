@@ -178,6 +178,14 @@
     .arch {
         clip-path: path('M0,100 L0,42 C0,18 22,0 50,0 C78,0 100,18 100,42 L100,100 Z');
     }
+    
+    @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+        animation: marquee 40s linear infinite;
+    }
 }
 
 @layer base {
