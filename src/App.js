@@ -437,6 +437,13 @@ export default function App() {
       {/* Visit Our Store Section */}
       <div id="visit-us" className="bg-white py-24 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Store Facade Image */}
+          <div className="w-full h-[300px] md:h-[450px] lg:h-[500px] rounded-xl overflow-hidden mb-16 shadow-2xl border border-gray-200 relative group">
+            <img src="/images/hero_facade.png" alt="Johnsons Store Facade" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             <div>
